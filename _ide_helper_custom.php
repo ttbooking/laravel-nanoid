@@ -1,5 +1,49 @@
 <?php
 
+namespace Illuminate\Database\Schema
+{
+    use TTBooking\Nanoid\Support\BlueprintMixin;
+
+    class Blueprint
+    {
+        /**
+         * Create a new NanoID column on the table.
+         */
+        public function nanoid(string $column = 'id', int $length = 21): ColumnDefinition
+        {
+            /** @var BlueprintMixin $instance */
+            return $instance->nanoid()($column, $length);
+        }
+
+        /**
+         * Create a new NanoID column on the table with a foreign key constraint.
+         */
+        public function foreignNanoid(string $column, int $length = 21): ForeignIdColumnDefinition
+        {
+            /** @var BlueprintMixin $instance */
+            return $instance->foreignNanoid()($column, $length);
+        }
+
+        /**
+         * Add the proper columns for a polymorphic table using NanoIDs.
+         */
+        public function nanoidMorphs(string $name, string $indexName = null): void
+        {
+            /** @var BlueprintMixin $instance */
+            $instance->nanoidMorphs()($name, $indexName);
+        }
+
+        /**
+         * Add nullable columns for a polymorphic table using NanoIDs.
+         */
+        public function nullableNanoidMorphs(string $name, string $indexName = null): void
+        {
+            /** @var BlueprintMixin $instance */
+            $instance->nullableNanoidMorphs()($name, $indexName);
+        }
+    }
+}
+
 namespace Illuminate\Support
 {
     use TTBooking\Nanoid\Support\StringableMixin;

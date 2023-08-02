@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace TTBooking\Nanoid;
 
 use Hidehalo\Nanoid;
+use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Str;
@@ -27,6 +28,7 @@ class NanoidServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
+        Blueprint::mixin(new Support\BlueprintMixin);
         Str::mixin(new Support\StrMixin);
         Stringable::mixin(new Support\StringableMixin);
         Validator::extend(
