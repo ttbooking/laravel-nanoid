@@ -10,20 +10,16 @@ use Illuminate\Support\Str;
 
 /**
  * @mixin Model
+ * @property int $nanoidSize
  */
 trait HasNanoids
 {
-    /**
-     * Defines nanoid size for the model.
-     */
-    protected int $nanoidSize = 21;
-
     /**
      * Determine nanoid size for the model.
      */
     public function nanoidSize(): int
     {
-        return $this->nanoidSize;
+        return $this->nanoidSize ?? 21;
     }
 
     /**
