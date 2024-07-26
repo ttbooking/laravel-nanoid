@@ -14,11 +14,11 @@ use Illuminate\Support\Stringable;
 class NanoidServiceProvider extends ServiceProvider
 {
     /**
-     * All of the container singletons that should be registered.
+     * All of the singletons that should be registered.
      *
      * @var array<string, class-string>
      */
-    public array $singletons = [
+    public $singletons = [
         Nanoid\GeneratorInterface::class => Nanoid\Generator::class,
         Nanoid\CoreInterface::class => Nanoid\Core::class,
     ];
