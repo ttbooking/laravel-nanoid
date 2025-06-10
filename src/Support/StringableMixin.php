@@ -32,7 +32,7 @@ class StringableMixin
      */
     public function whenIsNanoid(): Closure
     {
-        return function (callable $callback, callable $default = null): static {
+        return function (callable $callback, ?callable $default = null): static {
             return $this->when($this->isNanoid(), $callback, $default);
         };
     }

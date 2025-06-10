@@ -27,7 +27,7 @@ namespace Illuminate\Database\Schema
         /**
          * Add the proper columns for a polymorphic table using NanoIDs.
          */
-        public function nanoidMorphs(string $name, string $indexName = null): void
+        public function nanoidMorphs(string $name, ?string $indexName = null): void
         {
             /** @var BlueprintMixin $instance */
             $instance->nanoidMorphs()($name, $indexName);
@@ -36,7 +36,7 @@ namespace Illuminate\Database\Schema
         /**
          * Add nullable columns for a polymorphic table using NanoIDs.
          */
-        public function nullableNanoidMorphs(string $name, string $indexName = null): void
+        public function nullableNanoidMorphs(string $name, ?string $indexName = null): void
         {
             /** @var BlueprintMixin $instance */
             $instance->nullableNanoidMorphs()($name, $indexName);
@@ -82,7 +82,7 @@ namespace Illuminate\Support
         /**
          * Execute the given callback if the string is a valid NanoID.
          */
-        public function whenIsNanoid(callable $callback, callable $default = null): static
+        public function whenIsNanoid(callable $callback, ?callable $default = null): static
         {
             /** @var StringableMixin $instance */
             return $instance->whenIsNanoid()($callback, $default);

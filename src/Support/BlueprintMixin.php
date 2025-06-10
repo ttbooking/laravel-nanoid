@@ -50,7 +50,7 @@ class BlueprintMixin
      */
     public function nanoidMorphs(): Closure
     {
-        return function (string $name, string $indexName = null): void {
+        return function (string $name, ?string $indexName = null): void {
             $this->string("{$name}_type");
 
             /** @var Blueprint $this */
@@ -67,7 +67,7 @@ class BlueprintMixin
      */
     public function nullableNanoidMorphs(): Closure
     {
-        return function (string $name, string $indexName = null): void {
+        return function (string $name, ?string $indexName = null): void {
             $this->string("{$name}_type")->nullable();
 
             /** @var Blueprint $this */
